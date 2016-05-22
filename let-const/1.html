@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ACE in Action</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 0;
+            right: 50%;;
+            bottom: 0;
+            left: 0;
+            width:50%;
+        }
+        #editor1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 50%;
+            width:50%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="editor">.name{color:#ccc;}</div>
+<div id="editor1">.name1{color:#ccc;}</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    var editor = ace.edit("editor1");
+    editor.setTheme("ace/theme/github");
+    editor.getSession().setMode("ace/mode/css");
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+node_modules/
+*.wmv
+.idea/
+bin/
