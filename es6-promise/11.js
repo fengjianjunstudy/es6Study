@@ -10,20 +10,35 @@
 * */
 /*
     基本用法：
-        自己部署有用的附加方法 done finally
+        应用 Promise 是立即执行的，利用generator可以控制Promise什么时候开始执行
  * */
 'use strict';
-Promise.prototype.done = function (onFulfilled, onRejected) {
-    this.then(onFulfilled, onRejected)
-        .catch(function (reason) {
-            // 抛出一个全局错误
-            setTimeout(() => { throw reason }, 0);
+let userInfo = {
+    id:'123',
+    name:'xiaoming',
+    age:18
+}
+function  getServerDate(){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve(userInfo);
+        },0);
+    });
+}
+let g = function* () {
+    let foo = yield getServerDate();
+    console.log(foo);
+}
+function run(g) {
+    let it = g();
+    function go(result) {
+        if(result.done) {
+            return result.value;
+        }
+        return result.value.then((val) => {
+            console.log(val);
         });
-};
-Promise.prototype.finally = function (callback) {
-    let P = this.constructor;
-    return this.then(
-        value  => P.resolve(callback()).then(() => value),
-        reason => P.resolve(callback()).then(() => { throw reason })
-    );
-};
+    }
+    go(it.next());
+}
+run(g);

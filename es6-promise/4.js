@@ -11,7 +11,7 @@
 /*
     基本用法：
     promise.then(function(value){
-        resolved 状态执行
+        resolved 状态执行   resolve(val) val可能是某类型的值 也可能是另一个promise 对象
     },function(err){
         rejected状态执行
     })
@@ -25,13 +25,19 @@ let userInfo = {
 function  getServerDate(){
     return new Promise((resolve,reject) => {
         setTimeout(() => {
-            throw  new Error('rejected!');
-            resolve(userInfo);
+            let p = new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    resolve('I am an  Promise object');
+                },1000);
+            });
+            resolve(p);
         },0);
     });
 }
-getServerDate().then((data) => {
-    console.log(data);
+getServerDate().then((promise) => {
+    return promise;
 },(err) => {
     console.log(err);
+}).then((val) => {
+    console.log(val);
 })

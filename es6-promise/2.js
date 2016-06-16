@@ -10,12 +10,10 @@
 * */
 /*
     基本用法：
-    new Promise(function(resolve,reject){
-        if(success) {
-            resolve(value)
-        }else{
-            reject(value)
-        }
+    promise.then(function(value){
+        resolved 状态执行
+    },function(err){
+        rejected状态执行
     })
  * */
 'use strict';
@@ -27,10 +25,13 @@ let userInfo = {
 function  getServerDate(){
     return new Promise((resolve,reject) => {
         setTimeout(() => {
+            throw  new Error('rejected!');
             resolve(userInfo);
         },0);
     });
 }
 getServerDate().then((data) => {
     console.log(data);
+},(err) => {
+    console.log(err);
 })

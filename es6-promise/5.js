@@ -15,6 +15,7 @@
     },function(err){
         rejected状态执行
     })
+    Promise.prototype.then 返回的是一个新的Promise实例
  * */
 'use strict';
 let userInfo = {
@@ -38,6 +39,9 @@ getServerDate().then((promise) => {
     return promise;
 },(err) => {
     console.log(err);
+}).then((val) => {
+    console.log(val);
+    return val + ' o o ！';
 }).then((val) => {
     console.log(val);
 })

@@ -10,56 +10,33 @@
 * */
 /*
     基本用法：
-        指定发生错误时的回调函数
-        Promise.prototype.catch    then 方法中的resolveFn 和rejectFn 中的错误都会捕获  返回的依然是一个Promise实例，catch方法之后的then方法抛出的错误，前面的catch方法不会捕获
-        Promise.prototype.then(null,rejectFn)   只捕获当状态变为rejected状态时的错误
+        Promise.all方法用于将多个Promise实例，包装成一个新的Promise实例
+        let p = Promise.all([p1, p2, p3]);
+        p的状态由p1、p2、p3决定，分成两种情况。
 
+         （1）只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
 
-        Promise对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止
-
+         （2）只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
  * */
 'use strict';
-let userInfo = {
-    id:'123',
-    name:'xiaoming',
-    age:18
-}
-/*
-function  getServerDate(){
-    return new Promise((resolve,reject) => {
-        throw  new Error('in promise');
-        setTimeout(() => {
-            //throw  new Error('in promise'); 这里的错误不会被捕获 下次事件循环的时候抛出的错误，会抛出到Promise函数体外
-            resolve('success');
-        },0);
-    });
-}
-getServerDate().then((val) => {
-    console.log(val);
-},(err) => {
-    console.log('===reject===');
-    console.log(err);
-}).catch((err) => {
-    console.log('===catch===');
-    console.log(err);
-})*/
-function  getServerDate(){
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            //throw  new Error('in promise'); 这里的错误不会被捕获
-            //resolve('success');
-            reject('fail');
-        },0);
-    });
-}
-getServerDate().then((val) => {
-    console.log(val);
-    //throw  new Error('in resolve');   //这错误不会被then 方法中的rejectFn捕获，catch会捕获
-},(err) => {
-    console.log('===reject===');
-    console.log(err);
-    throw  new Error('in reject');   //这错误 catch会捕获
-}).catch((err) => {
-    console.log('===catch===');
-    console.log(err);
-})
+let p1 = new Promise((resolve,reject) => {
+   setTimeout(() => {
+       resolve('p1');
+   },1000)
+});
+let p2 = new Promise((resolve,reject) => {
+    setTimeout(() => {
+        resolve('p2');
+    },2000)
+});
+let p3 = new Promise((resolve,reject) => {
+    setTimeout(() => {
+        resolve('p3');
+    },3000)
+});
+let p = Promise.all([p1,p2,p3]);
+p.then((args) => {
+    for(let val of args) {
+        console.log(val);
+    }
+});

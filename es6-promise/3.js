@@ -15,23 +15,32 @@
     },function(err){
         rejected状态执行
     })
+
+
+    用Promise实现ajax的例子
  * */
 'use strict';
-let userInfo = {
-    id:'123',
-    name:'xiaoming',
-    age:18
+function getJson(url) {
+    let promise = new Promise((resolve,reject) => {
+        let client = new XMLHttpRequest();
+        client.open('GET',url);
+        client.onreadystatechange = handler;
+        client.responseType = 'json';
+        client.setRequestHeader('Accept','application/json');
+        client.send();
+        function handler() {
+            if(this.readyState === 4 && this.status === 200){
+                resolve(this.response);
+            }else{
+                reject(new Error(this.statusText));
+            }
+        }
+    })
+    return promise;
 }
-function  getServerDate(){
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            throw  new Error('rejected!');
-            resolve(userInfo);
-        },0);
-    });
-}
-getServerDate().then((data) => {
-    console.log(data);
-},(err) => {
-    console.log(err);
-})
+getJson('/post.json')
+    .then((json) => {
+        console.log(json);
+    },(err) => {
+        console.log(err);
+    })
