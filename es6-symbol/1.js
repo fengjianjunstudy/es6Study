@@ -32,5 +32,5 @@ checkFn();
     Symbol类型的值可以显式的转化为字符串 或者布尔值  但不能转为数值
 * */
 
-console.log('symbol to string',s1.toString());
-console.log('symbol to boolean',Boolean(s1));
+console.log('symbol to string',s1.toString());   //Symbol(hello)
+console.log('symbol to boolean',Boolean(s1));  //true

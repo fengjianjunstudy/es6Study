@@ -9,3 +9,4 @@
 let s1 = Symbol.for('same');
 let s2 = Symbol.for('same');
 console.log(s1 === s2);
+console.log(Symbol.keyFor(s1));
