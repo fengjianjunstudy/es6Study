@@ -2,16 +2,10 @@
  * Created by fengjj on 2016/6/21.
  */
 /*
-    Array.of   将一组值转化为数组   弥补Array的不足
+    Array.prototype.copyWidthin(target,start,end)
+    在当前数组内部将指定位置成员复制到其他位置（会覆盖原有成员）,返回当前数组，即，使用该方法会修改当前数组
 * */
 'use strict';
-let arr = new Array(3);
-console.log('===== new Array(3)=====',arr);
-let arr1 = Array.of(3);
-console.log('==== Array.of(3) ====',arr1);
-
-//模拟Array.of
-
-function ArrayOf() {
-    return Array.prototype.slice.call(arguments);
-}
+let arr = [1,2,3,4,5,6];
+arr.copyWithin(0,5);
+console.log(arr);

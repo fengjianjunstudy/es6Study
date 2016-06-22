@@ -2,31 +2,35 @@
  * Created by fengjj on 2016/6/21.
  */
 /*
-    遍历数组，返回一个遍历器对象，即可以使用 for of遍历
-    Array.prototype.keys()   //键名的遍历
-    Array.prototype.values()   //键值的遍历   babel-node 中已经实现
-    Array.prototype.entries() // 键值对的遍历
+    某个数组是否包含指定的值
+    Array.prototype.includes(val,start)  返回布尔值    babel-node 中实现
 * */
 'use strict';
+/*let arr = [1,2,3,4,5,6];
+console.log(arr.includes(1));
+console.log(arr.includes(1,2));*/
+
+
+//兼容写法
+function includesFn(val,start) {
+    if(start) {
+        return this.some((v,i) => {
+            if(i < start) {
+                return false;
+            }
+            return v === val;
+        });
+    }else{
+        return this.some((v) => {
+            return v === val;
+        });
+    }
+}
+Array.prototype.includes = Array.prototype.includes ? Array.prototype.includes : includesFn;
 let arr = [1,2,3,4,5,6];
-let keys = arr.keys();
-for(let k of keys) {
-    console.log('==== keys =====',k);
-}
-let vals = arr.values();
-for(let v of vals) {
-    console.log('===== values =====',v);
-}
-//let entries = arr.entries();  =》{}
-let entries = new Set(arr).entries();
-//均报错
-/*for(let o of entries) {
-    let [k,v] = o;
-    console.log('======= key+value',k+'+'+v)
-}
-for(let [k,v]  of entries) {
-    console.log('======= key+value',k+'+'+v)
-}*/
+console.log(arr.includes(1));
+console.log(arr.includes(1,2));
+
 
 
 

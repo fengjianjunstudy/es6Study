@@ -2,15 +2,32 @@
  * Created by fengjj on 2016/6/21.
  */
 /*
-    使用给定的值填充数组，已有的成员会被抹去
-    Array.prototype.fill(value,start,end) end 不包含该位置   会修改原来的数组
-
+    遍历数组，返回一个遍历器对象，即可以使用 for of遍历
+    Array.prototype.keys()   //键名的遍历
+    Array.prototype.values()   //键值的遍历   babel-node 中已经实现
+    Array.prototype.entries() // 键值对的遍历
 * */
 'use strict';
-let newArr = new Array(3).fill(6);
-console.log(newArr);
 let arr = [1,2,3,4,5,6];
-arr.fill(8,3,4);
-console.log(arr);
+let keys = arr.keys();
+for(let k of keys) {
+    console.log('==== keys =====',k);
+}
+let vals = arr.values();
+for(let v of vals) {
+    console.log('===== values =====',v);
+}
+//let entries = arr.entries();  =》{}
+let entries = new Set(arr).entries();
+
+for(let o of entries) {
+    let [k,v] = o;
+    console.log('======= key+value',k+'+'+v)
+}
+for(let [k,v]  of entries) {
+    console.log('======= key+value',k+'+'+v)
+}
+
+
 
 
