@@ -57,7 +57,7 @@ class User { //不会存在变量提升
         this.name = name;
         this.age = age;
     }
-    static level = 1;
+    //static level = 1;
     //静态方法
     static getClassName() {
         return 'User';
