@@ -1,3 +1,15 @@
 /**
  * Created by fengjj on 2016/7/1.
  */
+module.exports = {
+    entry: "./test.js",
+    output: {
+        path: __dirname,
+        filename: "bundle.js"
+    },
+    module: {
+        loaders: [
+            { test: /\.css$/, loader: "style!css" }
+        ]
+    }
+};

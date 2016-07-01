@@ -2,3 +2,4 @@ node_modules/
 *.wmv
 .idea/
 bin/
+bundle.js
