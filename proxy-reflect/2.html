@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0}
+        .container{width: 1170px; margin: 50px auto;}
+        h1{color: #c00;margin-bottom: 30px;}
+        p{line-height: 30px;font-size: 14px}
+        p::before {
+            content: "*";
+            color: #c00;
+            display: inline-block;
+            line-height: 30px;
+            vertical-align: middle;
+            font-weight: bolder;
+            margin-right: 10px;
+        }
+        .padL20{ padding-left: 20px;}
+        .padL20:before{content: "-"; margin-right: 10px;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>handler.set()</h1>
+        <p>set: function(target, property, value, receiver) {  }</p>
+    </div>
+
+    <script>
+        let obj = {name:'xiaoming',_name:'xiaohua'};
+        let proxy = new Proxy(obj,{
+            set:function(target,key,value){
+                if(key[0] !== '_'){
+                    Reflect.set(target,key,value);
+                }
+            }
+        })
+        proxy.name = 'HuangXiaoMing';
+        proxy['_name'] = 'hua';
+        console.log(proxy.name);   //HuangXiaoMing
+        console.log(proxy['_name']); //xiaohua
+    </script>
+</body>
+</html>
