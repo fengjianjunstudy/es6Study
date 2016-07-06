@@ -3,3 +3,8 @@ node_modules/
 .idea/
 bin/
 bundle.js
+config.js
+
+*.js.map
+webpack.config.js
+jspm_packages/
