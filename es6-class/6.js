@@ -4,7 +4,7 @@
     "use strict";
 class MyName {
     constructor(name) {
-        this.nm = name;
+        this.name = name;
     }
     get myMame() {
         return this.name;
@@ -14,5 +14,5 @@ class MyName {
     }
 }
 let n = new MyName('xx');
-//n.myMame = "n";
+n.myMame = "n";
 console.log(n.myMame);

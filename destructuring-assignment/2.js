@@ -8,7 +8,10 @@ console.log(a,b);  // 0 1
 let [n=6,m=2] = [null]
 console.log(n,m); //null 2
 
-let f = (val) => val;
+let f = (val) => {
+    console.log(val);
+    return val;
+};
 //let [x = f(a+6),y = f(b+'a')] = [];
 //console.log(x,y); //6 '1a'
 let [x = f(a+6),y = f(b+'a')] = [8];
