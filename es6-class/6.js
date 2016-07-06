@@ -6,7 +6,7 @@ class MyName {
     constructor(name) {
         this.name = name;
     }
-    get myMame() {
+    get myName() {
         return this.name;
     }
     set myName(name) {
@@ -14,5 +14,5 @@ class MyName {
     }
 }
 let n = new MyName('xx');
-n.myMame = "n";
-console.log(n.myMame);
+n.myName = "n";
+console.log(n.myName);

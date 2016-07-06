@@ -2,6 +2,7 @@
  * Created by feifei on 2016/5/22.
  */
     "use strict";
+//new.target 返回实例所作用的构造函数
 class Shapes {
     constructor(name) {
         if(new.target === Shapes) {
@@ -13,7 +14,7 @@ class Shapes {
 }
 class Rectangle extends Shapes {
     constructor(name) {
-        super(name);
+        super(name);  //super必须调用，this继承自父级，只有调用super以后才有this
     }
 }
 let rectanle = new Rectangle('rectanle');

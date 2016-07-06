@@ -17,7 +17,7 @@ function getArea(shape,opts) {
     }
     return area;
 }
-let a = getArea(shapeType.triangle,{width:10,height:10});
+let a = getArea('Triangle',{width:10,height:10});
 console.log('=== area ===',a);
 
 /*

@@ -57,12 +57,14 @@ class User { //不会存在变量提升
         this.name = name;
         this.age = age;
     }
-    //静态属性
+    //jin
     static level = 1;
     //静态方法
     static getClassName() {
         return 'User';
     }
+    //属性
+    myProp = 88;
     //实例方法
     changeName(name) {
         this.name = name;
@@ -87,7 +89,7 @@ class Manager extends User {
     }
 }
 let user = new User('xiaoming',18);
-console.log(user.info,User.level);
+console.log(user.info,User.level,user.myProp);
 let m = new Manager('admin',88,123456);
 console.log(Manager.getClassName());
 console.log(m.info);
@@ -97,4 +99,5 @@ console.log(m.getPassword());
 
 
 
+//babel-node --presets stage-0 10
 
