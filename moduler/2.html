@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0}
+        .container{width: 1170px; margin: 50px auto;}
+        h1{color: #c00;margin-bottom: 30px;}
+        p{line-height: 30px;font-size: 14px}
+        p::before {
+            content: "*";
+            color: #c00;
+            display: inline-block;
+            line-height: 30px;
+            vertical-align: middle;
+            font-weight: bolder;
+            margin-right: 10px;
+        }
+        .padL20{ padding-left: 20px;}
+        .padL20:before{content: "-"; margin-right: 10px;}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Module</h1>
+    <p>CommonJs模块输出的是一个值的拷贝,一旦输出一个值，模块内部的变化就影响不到这个值了</p>
+    <p>es6模块输出的是一个值的引用，会受模块内部的变化而变化</p>
+</div>
+<script src="../jspm_packages/system.js"></script>
+<script src="../config.js"></script>
+<script>
+    System.import('./main.js');
+</script>
+</body>
+</html>
