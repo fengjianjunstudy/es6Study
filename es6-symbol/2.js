@@ -24,7 +24,6 @@ console.log('==== second way ====',obj1,obj1[s1]);
 const COLOR_RED = Symbol('red');
 const COLOR_GREEN = Symbol('green');
 
-
 let s2 = Symbol('!');
 let obj2 = {};
 Object.defineProperty(obj2,s2,{value:'!'});

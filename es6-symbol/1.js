@@ -6,6 +6,8 @@
 * */
  'use strict';
 let s = Symbol('hello');
+let m = Symbol('hello');
+console.log(typeof s == typeof m);
 console.log(s,typeof s);
 
 /*
@@ -20,7 +22,7 @@ console.log('s === s1 &&&&&',s === s1);
 function checkFn() {
     let s1 = Symbol('hello');
     try {
-        console.log('symbol'+s1);
+        //console.log('symbol'+s1);
     }
     catch(e) {
         console.log('Symbol的值不能和其他类型的值进行运算',e);

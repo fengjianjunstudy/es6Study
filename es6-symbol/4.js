@@ -7,7 +7,7 @@
 'use strict';
 
 /*
- Symbol 属性遍历   不会出现在 for in   , for of ,Object.keys() Object.getOwnPrppertyNames() 中
+ Symbol 属性遍历   不会出现在 for in   , for of ,Object.keys() Object.getOwnPropertyNames() 中
  可以使用Object.getOwnPropertySmybols()获取
 * */
 let obj = {
@@ -26,7 +26,7 @@ obj[b] = 'world';
 
 console.log('===== Object.keys=====',Object.keys(obj));
 console.log('===== [...obj] =====',[...obj]);
-for (let o in obj) {
+for (let o of obj) {
     console.log('==== for of ===',o);
 }
 console.log('====== Object.getOwnPropertyNames ======',Object.getOwnPropertyNames(obj));

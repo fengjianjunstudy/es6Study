@@ -13,3 +13,16 @@
 //    }
 //}
 //arr[6]();
+'use strict';
+
+let a = 'a';
+function fn(){
+    a = 'b';
+}
+var a = 'a';
+function fn() {
+    //a = 'bb';
+    console.log(a);
+    var a;
+}
+fn();
