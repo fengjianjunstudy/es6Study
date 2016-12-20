@@ -14,7 +14,7 @@ console.log('===== Set to Array ===='.arr_set);
 let m = new Map([['name','xiaoming'],['age',18]]);
 m.set('email','fjj_321@126.com');
 let arr_map = Array.from(m);
-console.log('======== Map to Array ========',arr_map);
+console.log('======== Map to Array ===========',arr_map);
 
 //将字符串转为数组
 console.log(Array.from('abc',(item,index) => {

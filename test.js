@@ -1,8 +1,8 @@
 /*require("!style!css!./style.css") // 载入 style.css
 document.write('It works.')*/
 'use strict';
-let name = require('./moduler/nodeModule').name;
-console.log(name);  //xiaoming
-setTimeout(() => {
-    console.log(name); //xiaoming
-},1500);
+require("./src/assets/index.css");
+import { Person } from './src/es6-symbol/index.js'
+
+console.log('ss')
+console.log(new Person("xiaoming",19));

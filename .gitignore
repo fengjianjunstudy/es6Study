@@ -8,3 +8,4 @@ config.js
 *.js.map
 webpack.config.js
 jspm_packages/
+build/

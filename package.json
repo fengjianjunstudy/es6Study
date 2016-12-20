@@ -4,16 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"webpack && npm run server:dev ",
+    "server:dev":"webpack-dev-server --inline --hot --quiet  --compress --progress --colors "
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
-    "babel-core": "^6.7.2",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-env": "^1.1.4",
+    "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-0": "^6.5.0",
     "jspm": "^0.16.39",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.16.2"
   },
   "author": "",
   "license": "ISC",

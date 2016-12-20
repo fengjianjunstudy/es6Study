@@ -36,3 +36,9 @@ checkFn();
 
 console.log('symbol to string',s1.toString());   //Symbol(hello)
 console.log('symbol to boolean',Boolean(s1));  //true
+export class Person {
+    constructor(name,age){
+        this.name = this.name;
+        this.age = this.age;
+    }
+}

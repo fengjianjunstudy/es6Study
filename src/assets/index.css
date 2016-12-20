@@ -1,0 +1,15 @@
+*{margin: 0; padding: 0}
+.container{width: 960px; margin: 50px auto;}
+h1{color: #c00;margin-bottom: 30px;}
+p{line-height: 30px;font-size: 14px}
+p::before {
+    content: "*";
+    color: #c00;
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+    font-weight: bolder;
+    margin-right: 10px;
+}
+.padL20{ padding-left: 20px;}
+.padL20:before{content: "-"; margin-right: 10px;}
